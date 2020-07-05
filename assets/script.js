@@ -7,7 +7,7 @@ $(document).ready(function () {
     })
 
     function pastPres() {
-        var blockTime = moment().hours()
+        var blockTime = moment().hour()
         $(".time-block").each(function () {
             var time = $(this).attr("id")
             if (time < blockTime) {
@@ -37,5 +37,5 @@ $(document).ready(function () {
     $("#4pm .description").val(localStorage.getItem("4pm"))
     $("#5pm .description").val(localStorage.getItem("5pm"))
     $("#currentDay").text(moment().format("MMMM DD, YYYY"))
-    
+
 })
