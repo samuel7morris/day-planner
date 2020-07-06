@@ -9,20 +9,21 @@ $(document).ready(function () {
     function pastPres() {
         var blockTime = moment().hour()
         $(".time-block").each(function () {
-            var time = $(this).attr("id")
+
+            const time = $(this).data('hour')
             if (time < blockTime) {
                 $(this).addClass("past")
-            } else if (time === blockTime) {
+            } else if(time > blockTime) {
                 $(this).removeClass("past")
-                $(this).addClass("present")
-            } else {
-                $(this).removeClass("past")
-                $(this).removeClass("present")
                 $(this).addClass("future")
+            } else {
+               $(this).removeClass("future")
+               $(this).removeClass("past")
+               $(this).addClass("present")
             }
         })
     }
-
+ 
     pastPres()
 
     var interval = setInterval(pastPres, 15000)
